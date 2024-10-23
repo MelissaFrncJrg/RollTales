@@ -1,0 +1,52 @@
+// Couleurs globales
+$primary-color: #7614af;
+$secondary-color: #40c9ff;
+$tertiary-color: #2a00b7;
+$background: #212121;
+$card-background-color: #2c2c2c;
+$input-border-color: #414141;
+$text-color: #ffffff;
+$disabled-color: #717171;
+$danger-color: #b70028;
+$success-color: #007714;
+
+// Tailles globales
+$border-radius: 0.8rem;
+$card-width: 16rem;
+$card-height: 10rem;
+$card-padding: 0.2rem;
+$container-width: 80%;
+$font-size-large: 1.8rem;
+$font-size-general: 1.6rem;
+$font-size-medium: 1.4rem;
+$font-size-small: 1.2rem;
+$font-size-mini: 1rem;
+$spacing: 20px;
+
+// Transitions
+$transition-speed: 0.4s;
+
+// Fonts et tailles pour les polices
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=PT+Sans:wght@400;700&display=swap");
+
+$title-font: "Afacad Flux", sans-serif;
+$primary-font: "PT Sans", sans-serif;
+$secondary-font: "Kanit", sans-serif;
+$h1-font-size: 2.5rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.6rem;
+$h4-font-size: 1.4rem;
+$h5-font-size: 1.2rem;
+
+// Animation du gradient
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

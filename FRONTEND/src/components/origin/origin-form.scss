@@ -1,0 +1,50 @@
+@import "../../assets/styles/variables.scss";
+
+h3 {
+  text-align: center;
+  font-family: $title-font;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.statistiques-form {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .stat-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    input {
+      display: flex;
+      justify-content: space-between;
+      width: 40%;
+      width: 5rem;
+      padding: 0.5rem;
+      background-color: $background;
+      color: $text-color;
+      border: 1px solid #414141;
+      border-radius: 0.3rem;
+      font-family: $primary-font;
+
+      &:focus {
+        outline: none;
+        border-color: $secondary-color;
+      }
+    }
+
+    .p {
+      text-align: left;
+    }
+  }
+}
+
+.toggle-form {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

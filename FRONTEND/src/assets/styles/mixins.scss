@@ -1,0 +1,10 @@
+@import "variables";
+
+// Mixin pour le gradient d'arrière-plan
+@mixin gradient-background($primary, $start-color, $end-color) {
+  background: linear-gradient($primary, $primary) padding-box,
+    linear-gradient(145deg, transparent 35%, $start-color, $end-color)
+      border-box;
+  background-size: 200% 100%;
+  animation: gradient 5s ease-in-out infinite;
+}

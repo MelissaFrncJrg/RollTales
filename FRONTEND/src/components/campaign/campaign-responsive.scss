@@ -1,0 +1,126 @@
+@import "../../assets/styles/variables.scss";
+
+.campaign-subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $secondary-font;
+  font-weight: 400;
+  color: $primary-color;
+}
+
+.campaign .form .input {
+  padding-left: 2rem;
+}
+
+.invited-users {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.invited-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid $primary-color;
+}
+
+.campaign-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 3.5rem;
+}
+
+.campaign-icon {
+  position: absolute;
+  top: 28%;
+  font-size: 1.2rem;
+}
+
+.fa-envelope,
+.fa-dungeon {
+  left: 1%;
+}
+
+.fa-plus {
+  right: 4%;
+}
+
+.campaign-icon.fa-trash {
+  top: 84%;
+  right: 18%;
+  color: $danger-color;
+}
+
+.campaign-icon.fa-trash:hover {
+  color: #fff;
+}
+
+.interactive {
+  color: $primary-color;
+}
+
+.interactive:hover {
+  color: #fff;
+  cursor: pointer;
+  transition: ease-in 0.3s;
+}
+
+.submit {
+  color: $primary-color;
+}
+
+.submit:hover {
+  color: #fff;
+  background-color: $primary-color;
+}
+
+.cancel {
+  color: $danger-color;
+}
+
+.cancel:hover {
+  color: #fff;
+  background-color: $danger-color;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 720px) {
+  .card .title {
+    display: flex;
+    flex-direction: column;
+    position: inherit;
+    top: -10rem;
+  }
+
+  .campaign .form .input {
+    padding-left: 2.4rem;
+  }
+
+  .campaign-icon {
+    top: 30%;
+  }
+
+  .fa-envelope,
+  .fa-dungeon {
+    left: 3%;
+  }
+
+  .fa-plus {
+    right: 4%;
+  }
+
+  .campaign-icon.fa-trash {
+    top: 76%;
+    right: 18%;
+  }
+
+  .campaign-actions {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4rem;
+  }
+}

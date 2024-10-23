@@ -1,0 +1,78 @@
+@import "../../assets/styles/variables.scss";
+
+.header {
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  background-color: transparent;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.burger-icon {
+  padding: 1rem 0 3rem 1.3rem;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.nav-links {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 220px;
+  height: 100vh;
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: left 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.nav-links.open {
+  left: 0;
+}
+
+.header-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.3s;
+}
+
+.header-button:hover {
+  color: #7614af;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  cursor: pointer;
+}
+
+.logout {
+  color: #a00b0b;
+}
+
+.logout:hover {
+  color: #ff0000;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 720px) {
+  .header {
+    background-color: $background;
+  }
+}

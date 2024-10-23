@@ -1,0 +1,96 @@
+.checkbox-wrapper .switch {
+  display: none;
+}
+
+.checkbox-wrapper .switch + label {
+  align-items: center;
+  color: #78768d;
+  cursor: pointer;
+  display: flex;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  position: relative;
+  user-select: none;
+}
+
+.checkbox-wrapper .switch + label::before,
+.checkbox-wrapper .switch + label::after {
+  content: "";
+  display: block;
+}
+
+.checkbox-wrapper .switch + label::before {
+  background-color: #05012c;
+  border-radius: 500px;
+  height: 20px;
+  margin-right: 10px;
+  transition: background-color 0.125s ease-out;
+  width: 40px;
+}
+
+.checkbox-wrapper .switch + label::after {
+  background-color: #fff;
+  border-radius: 20px;
+  height: 16px;
+  left: 3px;
+  position: absolute;
+  top: 2px;
+  transition: transform 0.125s ease-out;
+  width: 16px;
+}
+
+.checkbox-wrapper .switch + label .switch-text {
+  display: block;
+  margin-right: 0.5rem;
+}
+
+.checkbox-wrapper .switch + label .switch-toggletext {
+  display: block;
+  font-weight: bold;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  width: 80px;
+}
+
+.checkbox-wrapper .switch + label .switch-unchecked,
+.checkbox-wrapper .switch + label .switch-checked {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 0.125s ease-out, opacity 0.125s ease-out;
+}
+
+.checkbox-wrapper .switch + label .switch-unchecked {
+  opacity: 1;
+  transform: none;
+}
+
+.checkbox-wrapper .switch + label .switch-checked {
+  opacity: 0;
+  transform: translate3d(0, 100%, 0);
+}
+
+.checkbox-wrapper .switch + label .switch-hiddenlabel {
+  position: absolute;
+  visibility: hidden;
+}
+
+.checkbox-wrapper .switch:checked + label::before {
+  background-color: #7614af;
+}
+
+.checkbox-wrapper .switch:checked + label::after {
+  transform: translate3d(20px, 0, 0);
+}
+
+.checkbox-wrapper .switch:checked + label .switch-unchecked {
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+}
+
+.checkbox-wrapper .switch:checked + label .switch-checked {
+  opacity: 1;
+  transform: none;
+}
