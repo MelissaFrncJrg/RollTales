@@ -21,16 +21,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.get("/test-cookie", (req, res) => {
-  res.cookie("testCookie", "value", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-    maxAge: 60 * 1000, // Expire après 1 minute
-  });
-  res.send("Cookie set");
-});
-
 // Router principal
 app.use("/", router);
 
