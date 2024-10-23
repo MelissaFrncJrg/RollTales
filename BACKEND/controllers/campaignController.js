@@ -21,11 +21,9 @@ export const createCampaign = async (req, res) => {
       campaignId: newCampaign._id,
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Une erreur est survenue lors de la création de la campagnes",
-      });
+    res.status(500).json({
+      message: "Une erreur est survenue lors de la création de la campagnes",
+    });
   }
 };
 
@@ -71,7 +69,7 @@ export const sendInvite = async (req, res) => {
     await sendMail({
       to: email,
       subject: `Rejoignez la campagne "${campaign.name}"`,
-      html: `<p>Vous avez été invité à rejoindre la campagne "${campaign.name}". Suivez <a href="http://localhost:3000/signup?inviteToken=${inviteToken}">ce lien</a> pour accepter l'invitation.</p>`,
+      html: `<p>Vous avez été invité à rejoindre la campagne "${campaign.name}". Suivez <a href="https://roll-tales.netlify.app/signup?inviteToken=${inviteToken}">ce lien</a> pour accepter l'invitation.</p>`,
     });
 
     return res.status(200).json({ message: "Invitation envoyée avec succès." });
@@ -205,12 +203,10 @@ export const getUsersCampaigns = async (req, res) => {
     });
     res.status(200).json(campaigns);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message:
-          "Uner erreur est survenue lors de la récupération des campagnes.",
-      });
+    res.status(500).json({
+      message:
+        "Uner erreur est survenue lors de la récupération des campagnes.",
+    });
   }
 };
 
@@ -230,11 +226,9 @@ export const leaveCampaign = async (req, res) => {
 
     res.status(200).json({ message: "Vous avez quitté la campagne." });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Une erreur est survenue lors de l'abandon de la campagne.",
-      });
+    res.status(500).json({
+      message: "Une erreur est survenue lors de l'abandon de la campagne.",
+    });
   }
 };
 
@@ -261,11 +255,8 @@ export const deleteCampaign = async (req, res) => {
 
     res.status(200).json({ message: "Campagne supprimée avec succès!" });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message:
-          "Une erreur est survenue lors de la suppression de la campagne.",
-      });
+    res.status(500).json({
+      message: "Une erreur est survenue lors de la suppression de la campagne.",
+    });
   }
 };

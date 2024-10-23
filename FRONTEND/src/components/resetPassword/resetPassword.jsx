@@ -48,7 +48,7 @@ const ResetPassword = () => {
     // requête à l'API pour reset le mot de passe
     try {
       await axios.post(
-        "http://localhost:5000/reset-password",
+        "https://rolltales-api.onrender.com/reset-password",
         { token, newPassword },
         { withCredentials: true }
       );

@@ -14,9 +14,12 @@ const AddElement = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/profile", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://rolltales-api.onrender.com/profile",
+          {
+            withCredentials: true,
+          }
+        );
         setIsAdmin(response.data.isAdmin);
       } catch (err) {}
     };

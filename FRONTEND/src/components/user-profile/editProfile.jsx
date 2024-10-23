@@ -119,7 +119,7 @@ const EditProfile = ({ handleLogout }) => {
       // Mise à jour des informations de profil
 
       await axios.put(
-        "http://localhost:5000/edit-profile",
+        "https://rolltales-api.onrender.com/edit-profile",
         { pseudo: updates.pseudo, email: updates.email },
         {
           withCredentials: true,
@@ -129,7 +129,7 @@ const EditProfile = ({ handleLogout }) => {
       // Mise à jour du mot de passe
       if (updates.currentPassword && updates.newPassword) {
         await axios.post(
-          "http://localhost:5000/password",
+          "https://rolltales-api.onrender.com/password",
           {
             currentPassword: updates.currentPassword,
             newPassword: updates.newPassword,
@@ -169,7 +169,7 @@ const EditProfile = ({ handleLogout }) => {
   const handleDeleteAccount = async () => {
     try {
       const response = await axios.delete(
-        "http://localhost:5000/delete-account",
+        "https://rolltales-api.onrender.com/delete-account",
         {
           withCredentials: true,
         }

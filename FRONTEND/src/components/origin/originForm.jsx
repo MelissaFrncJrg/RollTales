@@ -118,7 +118,7 @@ const OriginForm = () => {
     const token = localStorage.getItem("authToken");
 
     try {
-      await axios.post("http://localhost:5000/origins", origin, {
+      await axios.post("https://rolltales-api.onrender.com/origins", origin, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

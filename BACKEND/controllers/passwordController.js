@@ -17,7 +17,7 @@ export const requestPasswordReset = async (req, res) => {
     });
 
     // Insertion du token dans l'URL
-    const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+    const resetLink = `https://roll-tales.netlify.app/reset-password/${resetToken}`;
 
     // Envoi de l'email
     await sendMail({

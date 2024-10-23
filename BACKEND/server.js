@@ -13,7 +13,7 @@ const PORT = process.env.APP_PORT;
 // Configuration du middleware
 app.use(
   cors({
-    origin: "https://roll-tales.netlify.app/", // l'origine du frontend
+    origin: "https://roll-tales.netlify.app", // l'origine du frontend
     credentials: true, // on autorise l'envoi de cookies
   })
 );
@@ -24,8 +24,8 @@ app.use(cookieParser());
 app.get("/test-cookie", (req, res) => {
   res.cookie("testCookie", "value", {
     httpOnly: true,
-    secure: true, // Pas de HTTPS en développement
-    sameSite: "None", // Compatible avec les requêtes cross-origin en développement
+    secure: process.env.NODE_ENV === "production",
+    sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
     maxAge: 60 * 1000, // Expire après 1 minute
   });
   res.send("Cookie set");
@@ -43,7 +43,7 @@ app.use((err, req, res, next) => {
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`App listening at http://localhost:${PORT}`);
+      console.log(`App listening at https://rolltales-api.onrender.com`);
     });
   })
   .catch((error) => {

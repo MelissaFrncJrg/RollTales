@@ -41,7 +41,7 @@ const ArmorForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/armors", armor, {
+      await axios.post("https://rolltales-api.onrender.com/armors", armor, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },

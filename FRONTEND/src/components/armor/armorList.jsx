@@ -12,12 +12,15 @@ const ArmorList = ({ isAdmin }) => {
 
   const fetchArmors = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/armors", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "https://rolltales-api.onrender.com/armors",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+          withCredentials: true,
+        }
+      );
       setArmors(response.data);
     } catch (error) {
       console.error("Erreur lors de la récupération des armures :", error);
@@ -26,7 +29,7 @@ const ArmorList = ({ isAdmin }) => {
 
   const deleteArmor = async (id) => {
     try {
-      await axios.get("http://localhost:5000/armors", {
+      await axios.get("https://rolltales-api.onrender.com/armors", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },

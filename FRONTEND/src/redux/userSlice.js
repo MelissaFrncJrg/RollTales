@@ -3,9 +3,12 @@ import axios from "axios";
 
 export const fetchUser = () => async (dispatch) => {
   try {
-    const response = await axios.get("http://localhost:5000/profile", {
-      withCredentials: true,
-    });
+    const response = await axios.get(
+      "https://rolltales-api.onrender.com/profile",
+      {
+        withCredentials: true,
+      }
+    );
     if (response.data) {
       dispatch(
         setUser({

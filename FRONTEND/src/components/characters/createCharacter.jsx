@@ -25,16 +25,18 @@ const CreateCharacter = () => {
     const fetchData = async () => {
       try {
         const originsResponse = await axios.get(
-          "http://localhost:5000/origins"
+          "https://rolltales-api.onrender.com/origins"
         );
         setOrigins(originsResponse.data);
 
         const professionsResponse = await axios.get(
-          "http://localhost:5000/professions"
+          "https://rolltales-api.onrender.com/professions"
         );
         setProfessions(professionsResponse.data);
 
-        const skillsResponse = await axios.get("http://localhost:5000/skills");
+        const skillsResponse = await axios.get(
+          "https://rolltales-api.onrender.com/skills"
+        );
         setSkills(skillsResponse.data);
       } catch (error) {}
     };
@@ -57,9 +59,13 @@ const CreateCharacter = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/characters", characterData, {
-        withCredentials: true,
-      });
+      await axios.post(
+        "https://rolltales-api.onrender.com/characters",
+        characterData,
+        {
+          withCredentials: true,
+        }
+      );
       // Redirection vers la liste des personnages créés
       navigate("/my-characters");
     } catch (error) {}
