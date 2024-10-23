@@ -12,7 +12,7 @@ const ArmorList = ({ isAdmin }) => {
 
   const fetchArmors = async () => {
     try {
-      await axios.get("http://localhost:5000/armors", {
+      const response = await axios.get("http://localhost:5000/armors", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
