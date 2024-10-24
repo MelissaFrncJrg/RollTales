@@ -1,5 +1,5 @@
 import React from "react";
-import "./toggle.css";
+import "./toggle.scss";
 
 const Toggle = ({ setTrueFalse, choices, title, checked, id }) => {
   const handleToggle = () => {
