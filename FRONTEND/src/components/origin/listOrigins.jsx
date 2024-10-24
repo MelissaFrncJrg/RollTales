@@ -58,6 +58,10 @@ const OriginList = ({ isAdmin }) => {
           type: "success",
         })
       );
+      setTimeout(() => {
+        dispatch(clearNotification());
+        navigate("/origins");
+      }, 5000);
     } catch (error) {
       console.error("Erreur lors de la suppression de l'origine :", error);
       dispatch(
@@ -66,6 +70,9 @@ const OriginList = ({ isAdmin }) => {
           type: "error",
         })
       );
+      setTimeout(() => {
+        dispatch(clearNotification());
+      }, 5000);
     }
     setShowModal(false);
   };

@@ -191,7 +191,7 @@ const OriginForm = ({ editOrigin }) => {
   };
 
   return (
-    <div>
+    <div className="element container">
       <div>
         <h1>
           {editOrigin || originId ? "Editer une origine" : "Créer une origine"}
