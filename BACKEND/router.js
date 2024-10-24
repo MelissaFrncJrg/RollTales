@@ -42,6 +42,7 @@ import {
   getOrigins,
   updateOrigin,
   deleteOrigin,
+  getOriginById,
 } from "./controllers/originController.js";
 import {
   createProfession,
@@ -113,6 +114,7 @@ router.delete("/armors/:id", deleteArmor);
 
 router.post("/origins", createOrigin);
 router.get("/origins", getOrigins);
+router.get("/origins/:id", getOriginById);
 router.put("/origins/:id", updateOrigin);
 router.delete("/origins/:id", deleteOrigin);
 

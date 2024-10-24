@@ -25,6 +25,7 @@ import ResetPassword from "./components/resetPassword/resetPassword";
 import UserProfile from "./components/user-profile/userProfile";
 
 import "../src/assets/styles/App.scss";
+import OriginForm from "./components/origin/originForm";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,15 @@ const App = () => {
           element={
             <AdminRoute>
               <AddElement />
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/edit-origin/:originId"
+          element={
+            <AdminRoute>
+              <OriginForm />
             </AdminRoute>
           }
         />
