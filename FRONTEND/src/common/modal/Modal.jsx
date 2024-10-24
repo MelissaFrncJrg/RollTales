@@ -22,7 +22,7 @@ const Modal = ({
           <button className="submit btn" onClick={onConfirm}>
             {confirmText}
           </button>
-          <button className=" cancel btn" onClick={onCancel}>
+          <button className="cancel btn" onClick={onCancel}>
             {cancelText}
           </button>
         </div>

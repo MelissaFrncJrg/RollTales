@@ -124,8 +124,8 @@ const OriginList = ({ isAdmin }) => {
               cette action ?
             </p>
           }
-          confirmText={<p className="btn danger">Supprimer</p>}
-          cancelText={<p className="btn">Annuler</p>}
+          confirmText="Supprimer"
+          cancelText="Annuler"
           onConfirm={() => handleDelete(originToDelete._id)}
           onCancel={() => setShowModal(false)}
         />
