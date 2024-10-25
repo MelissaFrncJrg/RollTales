@@ -88,14 +88,7 @@
   background-color: $danger-color;
 }
 
-@media only screen and (min-width: 300px) and (max-width: 720px) {
-  .card .title {
-    display: flex;
-    flex-direction: column;
-    position: inherit;
-    top: -10rem;
-  }
-
+@media only screen and (min-width: 300px) and (max-width: 767px) {
   .campaign .form .input {
     padding-left: 2.4rem;
   }

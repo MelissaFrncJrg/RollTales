@@ -9,23 +9,7 @@
 }
 
 // Petits écrans (mobiles)
-@media only screen and (min-width: 300px) and (max-width: 720px) {
-  .card {
-    height: 12rem;
-    margin: 1.5rem;
-  }
-
-  .title {
-    position: relative;
-    top: -10rem;
-  }
-
-  .icon {
-    font-size: 2rem;
-    position: absolute;
-    top: 8rem;
-  }
-
+@media only screen and (max-width: 767px) {
   //style du formaulaire d'édition
   .edit-form {
     display: flex;
@@ -54,30 +38,14 @@
   }
 }
 
-// Écrans moyens et plus grands (tablettes et desktops)
-@media only screen and (min-width: 300px) and (max-width: 720px) {
+// Écrans moyens et plus grands (tablettes)
+@media only screen and (min-width: 300px) and (max-width: 767px) {
   .profile {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     align-items: center;
     gap: 1rem;
-  }
-
-  .card {
-    width: 15rem;
-    height: 10rem;
-  }
-
-  .title {
-    position: relative;
-    top: -9rem;
-  }
-
-  .icon {
-    font-size: 2.5rem;
-    position: absolute;
-    top: 6rem;
   }
 
   .icon-interactive {

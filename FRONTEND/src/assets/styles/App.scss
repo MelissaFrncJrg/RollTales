@@ -27,6 +27,7 @@ h4 {
 
 // Formulaires
 .container {
+  margin: 0 auto;
   padding: 1.5rem;
   background: linear-gradient(#212121, #212121) padding-box,
     linear-gradient(145deg, transparent 35%, #7614af, #40c9ff) border-box;
@@ -59,6 +60,7 @@ h4 {
   background-color: transparent;
   color: white;
   font-family: $primary-font;
+  font-size: $font-size-small;
 }
 
 .input:focus ~ .label,
@@ -191,7 +193,7 @@ p {
 @import "variables";
 
 // Petits écrans comprenant en paysage
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 767px) {
   // Remplir l'écran
 
   .container {
@@ -280,7 +282,6 @@ p {
 
   .input {
     padding: 0.7rem;
-    font-size: $font-size-small;
   }
 
   .label {

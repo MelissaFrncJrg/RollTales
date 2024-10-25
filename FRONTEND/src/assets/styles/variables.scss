@@ -32,11 +32,17 @@ $transition-speed: 0.4s;
 $title-font: "Afacad Flux", sans-serif;
 $primary-font: "PT Sans", sans-serif;
 $secondary-font: "Kanit", sans-serif;
-$h1-font-size: 2.5rem;
-$h2-font-size: 2rem;
+$h1-font-size: 2.4rem;
+$h2-font-size: 1.8rem;
 $h3-font-size: 1.6rem;
 $h4-font-size: 1.4rem;
 $h5-font-size: 1.2rem;
+
+$h1-responsive-font-size: 2.2rem;
+$h2-responsive-font-size: 1.6rem;
+$h3-responsive-font-size: 1.4rem;
+$h4-responsive-font-size: 1.2rem;
+$h5-responsive-font-size: 1rem;
 
 // Animation du gradient
 @keyframes gradient {

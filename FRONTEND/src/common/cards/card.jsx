@@ -7,7 +7,7 @@ const Card = ({ children, onClick, className, title, ...props }) => {
   return (
     <div className={`card ${className}`} onClick={onClick} {...props}>
       <div className="card-info">{children}</div>
-      {title && <p className="title">{title}</p>}
+      {title && <h3 className="card-title">{title}</h3>}
     </div>
   );
 };

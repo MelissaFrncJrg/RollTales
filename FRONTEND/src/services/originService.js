@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const API_URL = "https://rolltales-api.onrender.com";
-const API_URL = "http://localhost:5000";
+const API_URL = "https://rolltales-api.onrender.com";
 
 export const originService = {
   creatOrUpdateOrigin: async (originData, originId = null) => {
