@@ -92,7 +92,8 @@ const OriginForm = ({ editOrigin }) => {
   };
 
   const handleStatsChange = (e, statName, limitType) => {
-    const value = Math.max(0, Number(e.target.value)); // on s'assure que la valeur ne puisse pas être négative
+    const value =
+      e.target.value === "" ? null : Math.max(0, Number(e.target.value)); // on s'assure que la valeur ne puisse pas être négative
     setOrigin((prevState) => ({
       ...prevState,
       statsLimits: {
@@ -238,7 +239,7 @@ const OriginForm = ({ editOrigin }) => {
                     placeholder="Min"
                     value={
                       origin.statsLimits[stat].min !== null &&
-                      origin.statsLimits[stat].min !== undefined
+                      origin.statsLimits[stat].min !== 0
                         ? origin.statsLimits[stat].min
                         : ""
                     }
@@ -251,7 +252,7 @@ const OriginForm = ({ editOrigin }) => {
                     placeholder="Max"
                     value={
                       origin.statsLimits[stat].max !== null &&
-                      origin.statsLimits[stat].max !== undefined
+                      origin.statsLimits[stat].max !== 0
                         ? origin.statsLimits[stat].max
                         : ""
                     }
@@ -385,7 +386,7 @@ const OriginForm = ({ editOrigin }) => {
             onChange={handleChange}
           />
         </div>
-        <div className="origin-actions">
+        <div className="actions-section">
           <button className="submit btn">
             {editOrigin || originId ? "Mettre à jour" : "Créer l'origine"}
           </button>

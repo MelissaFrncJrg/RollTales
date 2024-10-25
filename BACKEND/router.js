@@ -47,6 +47,7 @@ import {
 import {
   createProfession,
   getProfessions,
+  getProfessionById,
   updateProfession,
   deleteProfession,
 } from "./controllers/professionController.js";
@@ -103,6 +104,7 @@ router.delete("/campaign/:id", deleteCampaign);
 
 // Lister les objets pour les utilisateurs connectés
 router.get("/origins", getOrigins);
+router.get("/professions", getProfessions);
 router.get("/armors", getArmors);
 
 // Routes administrateur uniquement
@@ -120,6 +122,7 @@ router.delete("/origins/:id", deleteOrigin);
 
 router.post("/professions", createProfession);
 router.get("/professions", getProfessions);
+router.get("/professions/:id", getProfessionById);
 router.put("/professions/:id", updateProfession);
 router.delete("/professions/:id", deleteProfession);
 

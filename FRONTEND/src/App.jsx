@@ -20,6 +20,8 @@ import Header from "./components/menu/header";
 import Invite from "./components/invite/invite";
 import LoginSignup from "./components/login-signup/loginSignup";
 import MyCampaigns from "./components/campaign/myCampaigns";
+import OriginList from "./components/origin/listOrigins";
+import ProfessionList from "./components/profession/listProfessions";
 import ResetPassword from "./components/resetPassword/resetPassword";
 import UserProfile from "./components/user-profile/userProfile";
 
@@ -72,9 +74,22 @@ const App = () => {
             </AdminRoute>
           }
         />
-
-        <Route path="/elements" element={<ListElements />} />
-
+        <Route
+          path="/origins"
+          element={
+            <AdminRoute>
+              <OriginList />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/professions"
+          element={
+            <AdminRoute>
+              <ProfessionList />
+            </AdminRoute>
+          }
+        />
         <Route path="/acceptInvite" element={<Invite />} />
         <Route
           path="/profile"

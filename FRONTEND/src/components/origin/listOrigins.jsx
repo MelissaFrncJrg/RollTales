@@ -93,10 +93,6 @@ const OriginList = ({ isAdmin, searchOption }) => {
             title={origin.name}
             onClick={() => !isAdmin && navigate(`origins/${origin._id}`)}
           >
-            <p
-              className=""
-              dangerouslySetInnerHTML={{ __html: origin.description }}
-            />
             {isAdmin && (
               <div className="card-actions">
                 <button
