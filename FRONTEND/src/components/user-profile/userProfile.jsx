@@ -53,7 +53,7 @@ const UserProfile = () => {
             alt="Mes Personnages"
           />
         </Card>
-        <Card title="Éléments" onClick={() => navigate("/origins")}>
+        <Card title="Éléments" onClick={() => navigate("/list-elements")}>
           <FontAwesomeIcon
             className="card-icon"
             icon={faBookSkull}

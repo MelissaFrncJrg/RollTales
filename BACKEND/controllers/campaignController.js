@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import { sendMail } from "../services/mailService.js";
 import Campaign from "../models/campaignModel.js";
 import Invitation from "../models/invitationModel.js";
-import { timeStamp } from "console";
 
 export const createCampaign = async (req, res) => {
   const { name } = req.body;

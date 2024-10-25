@@ -74,7 +74,7 @@ export const getOriginById = async (req, res) => {
 
     // Si l'origine n'est pas trouvée on affiche un erreur 404
     if (!origin) {
-      return res.status(404).json({ message: "Origine non toruvée" });
+      return res.status(404).json({ message: "Origine non trouvée" });
     }
 
     // Sinon on renvoie l'origine

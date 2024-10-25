@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import OriginForm from "../../components/origin/originForm";
 import ArmorForm from "../../components/armor/armorForm";
+import OriginForm from "../../components/origin/originForm";
+import ProfessionForm from "../../components/profession/professionForm";
 
 import "./elements.scss";
 
@@ -14,10 +15,12 @@ const CreateElement = () => {
   // Afficher le formulaire en fonction de l’élément sélectionné
   const renderForm = () => {
     switch (selectedElement) {
-      case "origin":
-        return <OriginForm />;
       case "armor":
         return <ArmorForm />;
+      case "origin":
+        return <OriginForm />;
+      case "profession":
+        return <ProfessionForm />;
       default:
         return <p>Sélectionnez un élément à créer.</p>;
     }
@@ -36,8 +39,9 @@ const CreateElement = () => {
           onChange={handleElementChange}
         >
           <option value="">Choisir un élément</option>
-          <option value="origin">Origine</option>
           <option value="armor">Armure ou équipement</option>
+          <option value="origin">Origine</option>
+          <option value="profession">Métier</option>
         </select>
       </div>
       <div>{renderForm()}</div>
