@@ -12,7 +12,7 @@ import Modal from "../../common/modal/Modal";
 
 import "./list-origins.scss";
 
-const OriginList = ({ isAdmin }) => {
+const OriginList = ({ isAdmin, searchOption }) => {
   const [origins, setOrigins] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [originToDelete, setOriginToDelete] = useState(null);
@@ -75,6 +75,11 @@ const OriginList = ({ isAdmin }) => {
     navigate(`/admin/edit-origin/${originId}`);
   };
 
+  // Barre de recherche
+  const filteredOrigins = origins.filter((origin) =>
+    origin.name.toLowerCase().includes(searchOption.toLowerCase())
+  );
+
   return (
     <div>
       <div className="grid-header">
@@ -82,7 +87,7 @@ const OriginList = ({ isAdmin }) => {
         <div className="underline"></div>
       </div>
       <div className="cards-grid">
-        {origins.map((origin) => (
+        {filteredOrigins.map((origin) => (
           <Card
             key={origin._id}
             title={origin.name}
@@ -91,11 +96,21 @@ const OriginList = ({ isAdmin }) => {
             <p
               className=""
               dangerouslySetInnerHTML={{ __html: origin.description }}
-            ></p>
+            />
             {isAdmin && (
               <div className="card-actions">
-                <button onClick={() => handleEdit(origin._id)}>Modifier</button>
-                <button onClick={() => confirmDelete(origin)}>Supprimer</button>
+                <button
+                  className="submit btn"
+                  onClick={() => handleEdit(origin._id)}
+                >
+                  Modifier
+                </button>
+                <button
+                  className="cancel btn"
+                  onClick={() => confirmDelete(origin)}
+                >
+                  Supprimer
+                </button>
               </div>
             )}
           </Card>

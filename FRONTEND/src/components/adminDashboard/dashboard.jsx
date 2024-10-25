@@ -20,7 +20,7 @@ const AdminDashboard = () => {
   };
 
   const handleListElements = () => {
-    navigate("/admin/list-elements");
+    navigate("/list-elements");
   };
 
   const handleEditElement = () => {
@@ -33,7 +33,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="dashboard container">
-      <div className="dashboard-header">
+      <div className="grid-header">
         <h1>Dashboard Administrateur</h1>
         <div className="underline"></div>
       </div>

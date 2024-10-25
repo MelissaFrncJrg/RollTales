@@ -58,11 +58,11 @@
   border-radius: 0.7rem;
 }
 
-.card .title {
+.card-title {
   color: #fff;
   text-align: center;
-  position: inherit;
-  top: -12rem;
+  position: relative;
+  top: -13.5rem;
 }
 
 .card:hover::after {
@@ -78,23 +78,43 @@
 }
 
 .card-icon {
-  font-size: 3rem;
-  position: absolute;
-  top: 7rem;
+  font-size: 4rem;
+  position: relative;
+  top: calc(100% - 12rem);
 }
 
-// Pour les écrans de taille moyenne y compris en paysage
-@media only screen and (min-width: 550px) and (max-width: 850px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+  .card {
+    width: 16rem;
+    height: 14rem;
   }
-}
 
-@media only screen and (min-width: 300px) and (max-width: 549px) {
   .cards-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .card-title {
+    top: -13.5rem;
+  }
+
   .card-icon {
-    top: 5.5rem;
+    font-size: 3rem;
+    top: calc(100% - 12rem);
+  }
+}
+
+// Pour les écrans de taille moyenne y compris en paysage
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-title {
+    top: -14rem;
+  }
+
+  .card-icon {
+    font-size: 3.5rem;
+    top: calc(100% - 13rem);
   }
 }
