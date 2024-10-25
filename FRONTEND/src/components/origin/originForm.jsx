@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setNotification } from "../../redux/notificationSlice";
+import {
+  setNotification,
+  clearNotification,
+} from "../../redux/notificationSlice";
 
 import Toggle from "../toggle/Toggle";
 
 import "./origin-form.scss";
+import { originService } from "../../services/originService";
 
 const OriginForm = ({ editOrigin }) => {
   const dispatch = useDispatch();
@@ -54,12 +57,10 @@ const OriginForm = ({ editOrigin }) => {
       setOrigin(editOrigin);
     } else if (originId) {
       // si un ID d'origine est trouvé dans l'URL, on récupère l'origine correspondnate depuis le backend
-      axios
-        .get(`https://rolltales-api.onrender.com/origins/${originId}`, {
-          withCredentials: true, // envoi les cookies avec la requête pour l'auhtentification
-        })
-        .then((response) => setOrigin(response.data)) // on met à jour l'état avec les données de la réponse
-        .catch((error) => {
+      originService
+        .getOriginById(originId)
+        .then((response) => setOrigin(response)) // on met à jour l'état avec les données de la réponse
+        .catch(() => {
           // en cas d'erreur on affiche une notification
           dispatch(
             setNotification({
@@ -146,40 +147,21 @@ const OriginForm = ({ editOrigin }) => {
     }
 
     try {
-      if (editOrigin || originId) {
-        // Si un ID est trouvé, le mode édition est choisi, on envoie donc une requête de mise à jour "put"
-        await axios.put(
-          `https://rolltales-api.onrender.com/origins/${origin._id}`,
-          originData,
-          {
-            withCredentials: true,
-          }
-        );
-        dispatch(
-          setNotification({
-            message: "Origine mise à jour avec succès!",
-            type: "success",
-          })
-        );
-      } else {
-        // sinon il s'agit d'une création avec une requête "post"
-        await axios.post(
-          "https://rolltales-api.onrender.com/origins",
-          originData,
-          {
-            withCredentials: true,
-          }
-        );
-        dispatch(
-          setNotification({
-            message: "Origine créée avec succès!",
-            type: "success",
-          })
-        );
-      }
-
-      // on redirige l'utilisateur vers la liste des origines
-      navigate("/origins");
+      await originService.creatOrUpdateOrigin(
+        originData,
+        originId || origin._id
+      );
+      dispatch(
+        setNotification({
+          message: "Formulaire soumis avec succès!",
+          type: "success",
+        })
+      );
+      setTimeout(() => {
+        dispatch(clearNotification());
+        // on redirige l'utilisateur vers la liste des origines
+        navigate("/origins");
+      }, 3000);
     } catch (error) {
       dispatch(
         setNotification({
@@ -191,7 +173,7 @@ const OriginForm = ({ editOrigin }) => {
   };
 
   return (
-    <div className="element container">
+    <div className="element">
       <div>
         <h1>
           {editOrigin || originId ? "Editer une origine" : "Créer une origine"}
@@ -223,7 +205,7 @@ const OriginForm = ({ editOrigin }) => {
 
             <h4>Description</h4>
             <textarea
-              className="text-zone"
+              className="input"
               name="description"
               value={origin.description}
               onChange={handleChange}
@@ -397,7 +379,7 @@ const OriginForm = ({ editOrigin }) => {
         <div className="notes-section">
           <h3>Notes spéciales</h3>
           <textarea
-            className="text-zone"
+            className="input"
             name="specialNotes"
             value={origin.specialNotes}
             onChange={handleChange}
