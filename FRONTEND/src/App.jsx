@@ -12,7 +12,7 @@ import { clearUser, fetchUser } from "./redux/userSlice";
 import AddElement from "./components/element/elements";
 import AdminDashboard from "./components/adminDashboard/dashboard";
 import AuthService from "./services/authService";
-import CreateCampaign from "./components/campaign/createCampaign";
+import CampaignForm from "./components/campaign/campaignForm";
 import CreateCharacter from "./components/characters/createCharacter";
 import EditProfile from "./components/user-profile/editProfile";
 import Header from "./components/menu/header";
@@ -105,7 +105,15 @@ const App = () => {
           path="/create-campaign"
           element={
             <PrivateRoute>
-              <CreateCampaign />
+              <CampaignForm />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/edit-campaign/:campaignId"
+          element={
+            <PrivateRoute>
+              <CampaignForm isEdit={true} />
             </PrivateRoute>
           }
         />
