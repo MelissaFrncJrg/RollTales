@@ -46,7 +46,10 @@ const UserProfile = () => {
             alt="Mes Campagnes"
           />
         </Card>
-        <Card title="Mes Personnages" onClick={() => navigate("/myCharacters")}>
+        <Card
+          title="Mes Personnages"
+          onClick={() => navigate("/my-characters")}
+        >
           <FontAwesomeIcon
             className="card-icon"
             icon={faGhost}

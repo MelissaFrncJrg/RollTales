@@ -6,7 +6,7 @@ export const professionService = {
   createOrUpdateProfession: async (professionData, professionId = null) => {
     try {
       if (professionId) {
-        axios.put(`${API_URL}/professions/${professionId}`, professionData, {
+        axios.patch(`${API_URL}/professions/${professionId}`, professionData, {
           withCredentials: true,
         });
       } else {

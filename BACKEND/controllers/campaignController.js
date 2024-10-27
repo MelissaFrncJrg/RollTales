@@ -246,7 +246,7 @@ export const deleteCampaign = async (req, res) => {
     if (campaign.player_id.toString() !== req.user._id.toString()) {
       return res.status(403).json({
         message:
-          "Non autorisé: vous ne pouvez supprimé que les campagnes que vous avez créées.",
+          "Non autorisé: vous ne pouvez supprimer que les campagnes que vous avez créées.",
       });
     }
 

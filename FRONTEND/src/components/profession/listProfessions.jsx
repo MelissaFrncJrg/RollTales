@@ -10,7 +10,7 @@ import {
 import Card from "../../common/cards/card";
 import Modal from "../../common/modal/Modal";
 
-const ProfessionList = ({ isAdmin, searchOption }) => {
+const ProfessionList = ({ isAdmin, searchOption = "" }) => {
   const [profession, setProfession] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [professionToDelete, setProfessionToDelete] = useState(null);
@@ -80,7 +80,7 @@ const ProfessionList = ({ isAdmin, searchOption }) => {
   );
 
   return (
-    <div>
+    <div className="container">
       <div className="grid-header">
         <h2>{isAdmin ? "Gestion des métiers" : "Liste des métiers"}</h2>
         <div className="underline"></div>

@@ -15,7 +15,7 @@ export const campaignService = {
 
   updateCampaign: async (campaignId, name, invitedUsers) => {
     try {
-      const response = await axios.put(
+      const response = await axios.patch(
         `${API_URL}/campaign/${campaignId}`,
         { name, invitedUsers },
         { withCredentials: true }

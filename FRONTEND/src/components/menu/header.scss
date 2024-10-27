@@ -1,13 +1,8 @@
 @import "../../assets/styles/variables.scss";
 
 .header {
-  top: 0;
-  right: 0;
-  left: 0;
-  display: flex;
-  justify-content: flex-start;
-  background-color: transparent;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1000;
 }
 
 .burger-icon {
@@ -15,6 +10,7 @@
   color: #fff;
   font-size: 2rem;
   cursor: pointer;
+  position: relative;
   z-index: 1001;
 }
 

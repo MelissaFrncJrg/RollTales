@@ -44,6 +44,7 @@ const OriginForm = ({ editOrigin }) => {
     innateAbilities: {
       nyctalopia: false,
       dangerSensing: false,
+      bothHands: false,
       can_use_shield: false,
     },
     specialNotes: "",
@@ -174,7 +175,7 @@ const OriginForm = ({ editOrigin }) => {
   };
 
   return (
-    <div className="element">
+    <div className="container">
       <div>
         <h1>
           {editOrigin || originId ? "Editer une origine" : "Créer une origine"}
@@ -365,6 +366,15 @@ const OriginForm = ({ editOrigin }) => {
               title="Sens du danger"
               checked={origin.innateAbilities.dangerSensing}
               id={"dangerSensingToggle"}
+            />
+            <Toggle
+              setTrueFalse={(value) =>
+                handleToggle(value, "innateAbilities.bothHands")
+              }
+              choices={["Non", "Oui"]}
+              title="Peut utiliser ses deux mains"
+              checked={origin.innateAbilities.bothHands}
+              id={"handToggle"}
             />
             <Toggle
               setTrueFalse={(value) =>

@@ -15,12 +15,16 @@ import AdminDashboard from "./components/adminDashboard/dashboard";
 import AuthService from "./services/authService";
 import CampaignForm from "./components/campaign/campaignForm";
 import CreateCharacter from "./components/characters/createCharacter";
+// import EditCharacter from "./components/characters/editCharacter";
 import EditProfile from "./components/user-profile/editProfile";
 import Header from "./components/menu/header";
 import Invite from "./components/invite/invite";
 import LoginSignup from "./components/login-signup/loginSignup";
+import MyCharacters from "./components/characters/myCharacters";
 import MyCampaigns from "./components/campaign/myCampaigns";
+import OriginForm from "./components/origin/originForm";
 import OriginList from "./components/origin/listOrigins";
+import ProfessionForm from "./components/profession/professionForm";
 import ProfessionList from "./components/profession/listProfessions";
 import ResetPassword from "./components/resetPassword/resetPassword";
 import UserProfile from "./components/user-profile/userProfile";
@@ -34,7 +38,10 @@ const App = () => {
   const isAuthenticated = !!user.userId;
 
   useEffect(() => {
-    dispatch(fetchUser());
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(fetchUser());
+    }
   }, [dispatch]);
 
   const handleLogout = () => {
@@ -83,10 +90,26 @@ const App = () => {
           }
         />
         <Route
+          path="/admin/edit-origin/:originId"
+          element={
+            <AdminRoute>
+              <OriginForm isEdit={true} />
+            </AdminRoute>
+          }
+        />
+        <Route
           path="/professions"
           element={
             <AdminRoute>
               <ProfessionList />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-profession/:professionId"
+          element={
+            <AdminRoute>
+              <ProfessionForm />
             </AdminRoute>
           }
         />
@@ -147,6 +170,22 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/my-characters"
+          element={
+            <PrivateRoute>
+              <MyCharacters />
+            </PrivateRoute>
+          }
+        />
+        {/* <Route
+          path="/edit-character/:character"
+          element={
+            <PrivateRoute>
+              <EditCharacter />
+            </PrivateRoute>
+          }
+        /> */}
         <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>
     </Router>

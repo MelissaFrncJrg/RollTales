@@ -6,7 +6,7 @@ export const originService = {
   creatOrUpdateOrigin: async (originData, originId = null) => {
     try {
       if (originId) {
-        axios.put(`${API_URL}/origins/${originId}`, originData, {
+        axios.patch(`${API_URL}/origins/${originId}`, originData, {
           withCredentials: true,
         });
       } else {
@@ -32,7 +32,7 @@ export const originService = {
 
   getOriginById: async (originId) => {
     try {
-      const response = axios.get(`${API_URL}/origins/${originId}`, {
+      const response = await axios.get(`${API_URL}/origins/${originId}`, {
         withCredentials: true,
       });
       return response.data;

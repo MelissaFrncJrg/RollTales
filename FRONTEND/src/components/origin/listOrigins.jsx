@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { originService } from "../../services/originService";
 import {
@@ -12,13 +12,15 @@ import Modal from "../../common/modal/Modal";
 
 import "./list-origins.scss";
 
-const OriginList = ({ isAdmin, searchOption }) => {
+const OriginList = ({ isAdmin, searchOption = "" }) => {
   const [origins, setOrigins] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [originToDelete, setOriginToDelete] = useState(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const notification = useSelector((state) => state.notification);
 
   useEffect(() => {
     // Fonction pour récupérer les origines
@@ -45,9 +47,11 @@ const OriginList = ({ isAdmin, searchOption }) => {
           type: "success",
         })
       );
+
+      navigate("/origins");
+
       setTimeout(() => {
         dispatch(clearNotification());
-        navigate("/origins");
       }, 5000);
     } catch (error) {
       console.error("Erreur lors de la suppression de l'origine :", error);
@@ -81,11 +85,16 @@ const OriginList = ({ isAdmin, searchOption }) => {
   );
 
   return (
-    <div>
+    <div className="container">
       <div className="grid-header">
         <h2>{isAdmin ? "Gestion des origines" : "Liste des origines"}</h2>
         <div className="underline"></div>
       </div>
+      {notification.message && (
+        <p className={notification.type === "error" ? "error" : "success"}>
+          {notification.message}
+        </p>
+      )}
       <div className="cards-grid">
         {filteredOrigins.map((origin) => (
           <Card

@@ -1,4 +1,196 @@
 @import "../../assets/styles/variables.scss";
 
+.statistics-form {
+  .character-stat-group {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .character-stat-group .edit-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .character-stat-group .edit-group label {
+    width: 30%;
+    text-align: left;
+  }
+
+  .character-stat-group .edit-group .edit {
+    width: 30%;
+  }
+}
+
+.edition-mode,
+.items-section,
+.character-inventory {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .edit-group,
+  .gold-section,
+  .valuables-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem;
+  }
+
+  .edit-group .edit,
+  .gold-section .input,
+  .valuables-section .input {
+    width: 30%;
+  }
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.character-inventory,
+.bank-account-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .gold-section,
+  .valuables-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .items-section {
+    display: flex;
+    flex-direction: column;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid $primary-color;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+
+    .item-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .description-row {
+      margin-top: 1rem;
+    }
+
+    label {
+      width: 20%;
+      text-align: left;
+    }
+
+    .input {
+      width: 70%;
+    }
+
+    .items-button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 1rem;
+
+      .add-item {
+        margin: 1.5rem auto;
+        font-size: 2rem;
+
+        &:hover {
+          color: $primary-color;
+          cursor: pointer;
+        }
+      }
+
+      .delete-item {
+        margin: 0.5rem 1.5rem;
+        font-size: 1.5rem;
+        color: $danger-color;
+
+        &:hover {
+          cursor: pointer;
+          color: #fff;
+        }
+      }
+
+      .tooltip-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .tooltip-text {
+        visibility: hidden;
+        width: auto;
+        background-color: $background;
+        text-align: center;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        position: absolute;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 1;
+      }
+
+      .tooltip-wrapper:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.notes-section {
+  margin: 1.5rem;
+  display: flex;
+
+  .notes {
+    margin: 1rem 0;
+  }
+}
+
+.submit.btn:disabled {
+  background-color: #fff;
+  color: $disabled-color;
+  cursor: not-allowed;
+}
+
+.submit.btn:disabled:hover {
+  background-color: #cccccc;
+}
+
 @media only screen and (min-width: 300px) and (max-width: 720px) {
+  .items-section {
+    flex-direction: column;
+  }
+
+  .item-row {
+    flex-direction: column;
+    align-items: venter;
+    gap: 10px;
+  }
+
+  .description-row {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
