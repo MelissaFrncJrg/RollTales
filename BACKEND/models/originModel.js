@@ -52,6 +52,7 @@ const originSchema = new Schema({
   innateAbilities: {
     nyctalopia: { type: Boolean, default: false },
     dangerSensing: { type: Boolean, default: false },
+    bothHands: { type: Boolean, default: false },
     can_use_shield: { type: Boolean, default: null, required: false },
   },
   specialNotes: {

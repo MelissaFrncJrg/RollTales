@@ -12,7 +12,7 @@ span {
 
 // Titres
 h1 {
-  font-family: $primary-font;
+  font-family: $title-font;
   font-size: $h1-font-size;
   color: $text-color;
   margin: 0;
@@ -22,11 +22,28 @@ h1 {
 h2,
 h3,
 h4 {
-  font-family: $title-font;
+  font-family: $primary-font;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
 }
 
 // Formulaires
 .container {
+  width: calc(100% - 4rem);
+  margin: 3rem auto;
   padding: 1.5rem;
   background: linear-gradient(#212121, #212121) padding-box,
     linear-gradient(145deg, transparent 35%, #7614af, #40c9ff) border-box;
@@ -215,13 +232,6 @@ p {
   }
 
   // Réduction des tailles de police
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-  }
 
   p {
     font-size: $font-size-mini;

@@ -108,7 +108,7 @@ const ProfessionForm = ({ editProfession }) => {
   };
 
   return (
-    <div className="element">
+    <div className="container">
       <div>
         <h1>
           {editProfession || professionId

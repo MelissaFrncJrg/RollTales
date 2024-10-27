@@ -13,6 +13,10 @@
   padding-left: 2rem;
 }
 
+.invited-players-section {
+  font-family: $secondary-font;
+}
+
 .invited-users {
   list-style-type: none;
   padding: 0;
@@ -51,7 +55,7 @@
 }
 
 .campaign-icon.fa-trash {
-  top: 68%;
+  top: 67%;
   right: 18%;
   color: $danger-color;
 }
@@ -107,7 +111,7 @@
   }
 
   .campaign-icon.fa-trash {
-    top: 73%;
+    top: 67.5%;
   }
 
   .campaign-actions {

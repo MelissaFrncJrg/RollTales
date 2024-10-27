@@ -11,6 +11,11 @@ const escapeSpecialChars = (value) => {
     .replace(/'/g, "&#x27;"); // Échappe les apostrophes
 };
 
+// Fonction pour ne garder que quelques caractères autorisés
+const filterAllowedCharacters = (value) => {
+  return value.replace(/[^a-zA-Z0-9 .,']/g, "");
+};
+
 export const sanitizeInput = (value) => {
   // Nettoyer l'entrée en supprimant les balises HTML et les attributs non autorisés pour éviter les injections de scripts malveillants
   const cleanValue = sanitizeHtml(value, {

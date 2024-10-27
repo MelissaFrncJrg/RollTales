@@ -29,7 +29,6 @@ export const createProfession = async (req, res) => {
     });
   } catch (error) {
     // gestion des erreurs si la création échoue
-    console.log("erreur métier serveur:", error);
     res.status(500).json({ message: "Erreur lors de la création du métier" });
   }
 };
