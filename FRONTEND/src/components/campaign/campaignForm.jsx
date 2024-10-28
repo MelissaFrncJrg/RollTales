@@ -23,6 +23,7 @@ const CampaignForm = ({ isEdit = false }) => {
   const dispatch = useDispatch();
   const [userEmail, setUserEmail] = useState("");
   const [invitedUsers, setInvitedUsers] = useState([]);
+  const [existingCampaignNames, setExistingCampaignNames] = useState([]);
   const { campaignId } = useParams(); // Utilisé pour l'édition
 
   const notification = useSelector((state) => state.notification);
@@ -52,6 +53,24 @@ const CampaignForm = ({ isEdit = false }) => {
     }
   }, [campaignId, isEdit, dispatch]);
 
+  // Charger les noms des campagnes déjà créées par l'utilisateur
+  useEffect(() => {
+    const fetchCampaignNames = async () => {
+      try {
+        const campaigns = await campaignService.getUserCampaigns();
+        const campaignNames = campaigns.map((camp) => camp.name.toLowerCase()); // on convertit les noms en minuscule sinon l'utilisateur peut créer une en majuscules, une en minuscules
+        setExistingCampaignNames(campaignNames);
+      } catch (error) {
+        console.error(
+          "Erreur lors de la récupération des noms de campagnes",
+          error
+        );
+      }
+    };
+
+    fetchCampaignNames();
+  }, []);
+
   // Gestion des invitations utilisateurs
   const handleInviteUser = () => {
     if (userEmail !== "" && constForm.regexEmail.test(userEmail)) {
@@ -64,6 +83,22 @@ const CampaignForm = ({ isEdit = false }) => {
     setInvitedUsers((prev) => prev.filter((_, i) => i !== index));
   };
 
+  // Vérification du champ "nom"
+  const handleNameChange = (e) => {
+    const campaignName = e.target.value;
+    setCampaign({ ...campaign, name: campaignName });
+    if (existingCampaignNames.includes(campaignName.toLowerCase())) {
+      dispatch(
+        setNotification({
+          message: "Vous avez déjà créé une campagne portant ce nom!",
+          type: "error",
+        })
+      );
+    } else {
+      dispatch(clearNotification());
+    }
+  };
+
   // Soumission du formulaire de campagne
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,6 +107,14 @@ const CampaignForm = ({ isEdit = false }) => {
       dispatch(
         setNotification({
           message: "Veuillez entrer un nom de campagne !",
+          type: "error",
+        })
+      );
+      return;
+    } else if (existingCampaignNames.includes(campaign.name.toLowerCase())) {
+      dispatch(
+        setNotification({
+          message: "Vous avez déjà créé une campagne portant ce nom!",
           type: "error",
         })
       );
@@ -136,12 +179,6 @@ const CampaignForm = ({ isEdit = false }) => {
     }
   };
 
-  // Vider les champs après soumission
-  const handleReset = (e) => {
-    setCampaign({ ...campaign, name: e.target.value });
-    setUserEmail("");
-  };
-
   const handleCancel = () => {
     navigate("/my-campaigns");
   };
@@ -149,7 +186,10 @@ const CampaignForm = ({ isEdit = false }) => {
   // Désactiver le bouton de soumission si les champs requis ne sont pas remplis
   const disableSubmit = isEdit
     ? campaign.name.trim() === "" // En mode édition, seul le nom est requis
-    : campaign.name.trim() === "" || invitedUsers.length === 0; // En mode création, nom et invités sont requis
+    : campaign.name.trim() === "" ||
+      invitedUsers.length === 0 ||
+      notification.message ===
+        "Vous avez déjà créé une campagne portant ce nom!"; // En mode création, nom et invités sont requis
 
   return (
     <div className="campaign container">
@@ -166,7 +206,7 @@ const CampaignForm = ({ isEdit = false }) => {
           type="text"
           placeholder="Entrez un nom de Campagne"
           value={campaign.name}
-          onChange={handleReset}
+          onChange={handleNameChange}
           required
         />
       </div>
@@ -205,7 +245,11 @@ const CampaignForm = ({ isEdit = false }) => {
           </li>
         ))}
       </ul>
-
+      {notification.message && (
+        <p className={notification.type === "error" ? "error" : "success"}>
+          {notification.message}
+        </p>
+      )}
       <div className="campaign-actions">
         <button
           className="submit btn"
@@ -218,11 +262,6 @@ const CampaignForm = ({ isEdit = false }) => {
           Annuler
         </button>
       </div>
-      {notification.message && (
-        <p className={notification.type === "error" ? "error" : "success"}>
-          {notification.message}
-        </p>
-      )}
     </div>
   );
 };

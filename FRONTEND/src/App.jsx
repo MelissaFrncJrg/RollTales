@@ -38,10 +38,7 @@ const App = () => {
   const isAuthenticated = !!user.userId;
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      dispatch(fetchUser());
-    }
+    dispatch(fetchUser());
   }, [dispatch]);
 
   const handleLogout = () => {
