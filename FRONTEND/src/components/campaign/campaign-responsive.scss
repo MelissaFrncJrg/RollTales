@@ -120,3 +120,9 @@
     margin-top: 4rem;
   }
 }
+
+@media only screen and (min-width: 300px) and (max-width: 465px) {
+  .campaign-icon.fa-trash {
+    top: 73.5%;
+  }
+}
